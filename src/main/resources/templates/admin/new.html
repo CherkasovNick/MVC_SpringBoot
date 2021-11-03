@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  >
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NewUser</title>
+
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/admin}" th:object="${user}">
+
+
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder= "Name"/>
+
+    <br/>
+
+    <label for="surname">Surname</label>
+    <input type="text" th:field="*{surname}" id="surname" placeholder= "Surname"/>
+
+    <br/>
+
+    <label for="password">Password</label>
+    <input type="text" th:field="*{password}" id="password" placeholder= "Password"/>
+
+    <br/>
+
+    <ul>
+        <li th:each="role : ${rolesList}">
+            <input type="checkbox" name="selectedRoles" th:value="${role.getName()}"
+                   th:text="${role.getAuthority()}"/>
+        </li>
+    </ul>
+
+    <bt/>
+
+    <input type="submit" value="Submit"/>
+
+</form>
+
+</body>
+</html>
