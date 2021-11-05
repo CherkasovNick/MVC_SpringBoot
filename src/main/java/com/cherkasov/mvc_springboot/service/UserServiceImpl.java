@@ -48,7 +48,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User update(User updatedUser) {
+    public User update(User updatedUser, String[] selectedRoles) {
+        updatedUser.setRoles(roleService.getSetRolesToUser(selectedRoles));
         return userDao.update(updatedUser);
     }
 

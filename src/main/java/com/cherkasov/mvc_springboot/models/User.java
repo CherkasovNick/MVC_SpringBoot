@@ -27,7 +27,7 @@ public class User implements UserDetails {
     private String password;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}
-                , fetch = FetchType.EAGER)
+                , fetch = FetchType.LAZY)
     @JoinTable(
             name = "user_role"
             , joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id")

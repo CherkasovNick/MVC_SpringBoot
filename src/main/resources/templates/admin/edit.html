@@ -15,6 +15,19 @@
     <label for="password">Password</label>
     <input type="text" th:field="*{password}" id="password"/>
     <br/>
+
+    <ul>
+        <li th:each="role : ${rolesList}">
+            <input type="checkbox" name="selectedRoles"
+                   th:value="${role.getName()}"
+                   th:checked="${user.getRoles().contains(role) ? true : false}"
+                   th:text="${role.getAuthority()}"/>
+<!--                   th:checked="${role.getName().equals()}" -->
+
+        </li>
+    </ul>
+
+    <bt/>
     <input type="submit" value="Update user"/>
 
 </form>
